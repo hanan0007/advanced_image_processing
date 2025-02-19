@@ -1,62 +1,122 @@
 import 'package:flutter/material.dart';
-import 'dart:async';
-
-import 'package:flutter/services.dart';
 import 'package:advanced_image_processing_toolkit/advanced_image_processing_toolkit.dart';
+import 'dart:typed_data';
+import 'package:image_picker/image_picker.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  String _platformVersion = 'Unknown';
-  final _advancedImageProcessingToolkitPlugin = AdvancedImageProcessingToolkit();
-
-  @override
-  void initState() {
-    super.initState();
-    initPlatformState();
-  }
-
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    String platformVersion;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    // We also handle the message potentially returning null.
-    try {
-      platformVersion =
-          await _advancedImageProcessingToolkitPlugin.getPlatformVersion() ?? 'Unknown platform version';
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _platformVersion = platformVersion;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
+      title: 'Image Processing Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        useMaterial3: true,
+      ),
+      home: const HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Uint8List? _imageBytes;
+  final _picker = ImagePicker();
+  List<DetectedObject>? _detectedObjects;
+
+  Future<void> _pickImage() async {
+    final image = await _picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      final bytes = await image.readAsBytes();
+      setState(() {
+        _imageBytes = bytes;
+        _detectedObjects = null;
+      });
+    }
+  }
+
+  Future<void> _applyGrayscale() async {
+    if (_imageBytes != null) {
+      final processed = await ImageFilters.applyGrayscale(_imageBytes!);
+      setState(() {
+        _imageBytes = processed;
+      });
+    }
+  }
+
+  Future<void> _detectObjects() async {
+    if (_imageBytes != null) {
+      final objects = await ObjectRecognition.detectObjects(_imageBytes!);
+      setState(() {
+        _detectedObjects = objects;
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Image Processing Demo'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            if (_imageBytes != null) ...[
+              Image.memory(
+                _imageBytes!,
+                height: 300,
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: _applyGrayscale,
+                    child: const Text('Apply Grayscale'),
+                  ),
+                  const SizedBox(width: 10),
+                  ElevatedButton(
+                    onPressed: _detectObjects,
+                    child: const Text('Detect Objects'),
+                  ),
+                ],
+              ),
+            ],
+            if (_detectedObjects != null) ...[
+              const SizedBox(height: 20),
+              Text('Detected ${_detectedObjects!.length} objects'),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _detectedObjects!.length,
+                  itemBuilder: (context, index) {
+                    final obj = _detectedObjects![index];
+                    return ListTile(
+                      title: Text(obj.label),
+                      subtitle: Text('Confidence: ${obj.confidence.toStringAsFixed(2)}'),
+                    );
+                  },
+                ),
+              ),
+            ],
+          ],
         ),
-        body: Center(
-          child: Text('Running on: $_platformVersion\n'),
-        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _pickImage,
+        child: const Icon(Icons.add_photo_alternate),
       ),
     );
   }

@@ -1,7 +1,9 @@
 name: advanced_image_processing_toolkit
-description: "Advanced image processing toolkit for Flutter with real-time filters, object recognition, and AR features"
+description: A comprehensive Flutter plugin for advanced image processing, featuring real-time filters, object recognition, and AR capabilities.
 version: 0.0.1
-homepage: https://github.com/yourusername/advanced_image_processing_toolkit
+homepage: https://github.com/emorilebo/advanced_image_processing_toolkit
+repository: https://github.com/emorilebo/advanced_image_processing_toolkit
+documentation: https://github.com/emorilebo/advanced_image_processing_toolkit/wiki
 
 environment:
   sdk: ^3.6.0

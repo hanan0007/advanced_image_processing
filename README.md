@@ -1,18 +1,34 @@
 # advanced_image_processing_toolkit
 
-A new Flutter plugin project.
+A comprehensive Flutter plugin for advanced image processing, featuring real-time filters, object recognition, and augmented reality capabilities.
+
+## Features
+
+- Real-time image filters (grayscale, blur, brightness adjustment)
+- Object detection and recognition with confidence scores
+- Augmented reality features (3D model placement, AR session management)
+- Cross-platform support (iOS and Android)
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/to/develop-plugins),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+dependencies:
+advanced_image_processing_toolkit: ^0.0.1
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
 
-The plugin project was generated without specifying the `--platforms` flag, no platforms are currently supported.
-To add platforms, run `flutter create -t plugin --platforms <platforms> .` in this directory.
-You can also find a detailed instruction on how to add platforms in the `pubspec.yaml` at https://flutter.dev/to/pubspec-plugin-platforms.
+## Contributing
+
+Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTING.md) before submitting a pull request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Godfrey Lebo
+- GitHub: [@emorilebo](https://github.com/emorilebo)
+- Website: [Godfrey Lebo](https://godfreylebo.vercel.app/)
+
+## Support
+
+If you find this package helpful, please consider giving it a star on GitHub. For any issues or feature requests, please create an issue on the GitHub repository.
