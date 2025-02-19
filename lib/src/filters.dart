@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
+import 'package:logging/logging.dart';
+
+final _logger = Logger('ImageFilters');
 
 /// Provides various image filtering capabilities
 class ImageFilters {
@@ -15,7 +18,7 @@ class ImageFilters {
       );
       return result ?? imageBytes;
     } on PlatformException catch (e) {
-      print('Failed to apply grayscale filter: ${e.message}');
+      _logger.warning('Failed to apply grayscale filter: ${e.message}');
       return imageBytes;
     }
   }
@@ -32,7 +35,7 @@ class ImageFilters {
       );
       return result ?? imageBytes;
     } on PlatformException catch (e) {
-      print('Failed to apply blur filter: ${e.message}');
+      _logger.warning('Failed to apply blur filter: ${e.message}');
       return imageBytes;
     }
   }
@@ -52,7 +55,7 @@ class ImageFilters {
       );
       return result ?? imageBytes;
     } on PlatformException catch (e) {
-      print('Failed to adjust brightness: ${e.message}');
+      _logger.warning('Failed to adjust brightness: ${e.message}');
       return imageBytes;
     }
   }

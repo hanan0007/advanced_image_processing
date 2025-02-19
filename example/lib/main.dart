@@ -1,9 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:advanced_image_processing_toolkit/advanced_image_processing_toolkit.dart';
-import 'dart:typed_data';
 import 'package:image_picker/image_picker.dart';
+import 'package:flutter/services.dart';
+import 'package:logging/logging.dart';
+
+final _logger = Logger('AdvancedImageProcessingToolkit');
 
 void main() {
+  // Initialize logging
+  Logger.root.level = Level.INFO;
+  Logger.root.onRecord.listen((record) {
+    debugPrint('${record.level.name}: ${record.time}: ${record.message}');
+  });
+  
   runApp(const MyApp());
 }
 
@@ -36,31 +45,43 @@ class _HomePageState extends State<HomePage> {
   List<DetectedObject>? _detectedObjects;
 
   Future<void> _pickImage() async {
-    final image = await _picker.pickImage(source: ImageSource.gallery);
-    if (image != null) {
-      final bytes = await image.readAsBytes();
-      setState(() {
-        _imageBytes = bytes;
-        _detectedObjects = null;
-      });
+    try {
+      final image = await _picker.pickImage(source: ImageSource.gallery);
+      if (image != null) {
+        final bytes = await image.readAsBytes();
+        setState(() {
+          _imageBytes = bytes;
+          _detectedObjects = null;
+        });
+      }
+    } catch (e) {
+      _logger.warning('Failed to pick image: $e');
     }
   }
 
   Future<void> _applyGrayscale() async {
     if (_imageBytes != null) {
-      final processed = await ImageFilters.applyGrayscale(_imageBytes!);
-      setState(() {
-        _imageBytes = processed;
-      });
+      try {
+        final processed = await ImageFilters.applyGrayscale(_imageBytes!);
+        setState(() {
+          _imageBytes = processed;
+        });
+      } catch (e) {
+        _logger.warning('Failed to apply grayscale: $e');
+      }
     }
   }
 
   Future<void> _detectObjects() async {
     if (_imageBytes != null) {
-      final objects = await ObjectRecognition.detectObjects(_imageBytes!);
-      setState(() {
-        _detectedObjects = objects;
-      });
+      try {
+        final objects = await ObjectRecognition.detectObjects(_imageBytes!);
+        setState(() {
+          _detectedObjects = objects;
+        });
+      } catch (e) {
+        _logger.warning('Failed to detect objects: $e');
+      }
     }
   }
 
