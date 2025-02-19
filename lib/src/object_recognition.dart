@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
+import 'package:logging/logging.dart';
+
+final _logger = Logger('ObjectRecognition');
 
 /// Represents a detected object in an image
 class DetectedObject {
@@ -50,7 +53,7 @@ class ObjectRecognition {
               DetectedObject.fromMap(item as Map<dynamic, dynamic>))
           .toList();
     } on PlatformException catch (e) {
-      print('Failed to detect objects: ${e.message}');
+      _logger.warning('Failed to detect objects: ${e.message}');
       return [];
     }
   }

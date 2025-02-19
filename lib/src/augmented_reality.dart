@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
+import 'package:logging/logging.dart';
+
+final _logger = Logger('AugmentedReality');
 
 /// Provides augmented reality capabilities
 class AugmentedReality {
@@ -17,7 +20,7 @@ class AugmentedReality {
       _isSessionRunning = result ?? false;
       return _isSessionRunning;
     } on PlatformException catch (e) {
-      print('Failed to start AR session: ${e.message}');
+      _logger.warning('Failed to start AR session: ${e.message}');
       return false;
     }
   }
@@ -29,7 +32,7 @@ class AugmentedReality {
       _isSessionRunning = !(result ?? false);
       return !_isSessionRunning;
     } on PlatformException catch (e) {
-      print('Failed to stop AR session: ${e.message}');
+      _logger.warning('Failed to stop AR session: ${e.message}');
       return false;
     }
   }
@@ -53,7 +56,7 @@ class AugmentedReality {
       );
       return result ?? false;
     } on PlatformException catch (e) {
-      print('Failed to place 3D model: ${e.message}');
+      _logger.warning('Failed to place 3D model: ${e.message}');
       return false;
     }
   }
@@ -64,7 +67,7 @@ class AugmentedReality {
       final result = await _channel.invokeMethod<bool>('isARSupported');
       return result ?? false;
     } on PlatformException catch (e) {
-      print('Failed to check AR support: ${e.message}');
+      _logger.warning('Failed to check AR support: ${e.message}');
       return false;
     }
   }
