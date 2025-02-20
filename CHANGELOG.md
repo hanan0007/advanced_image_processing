@@ -1,8 +1,65 @@
-## 0.0.1
+# Changelog
 
-* Initial release
-* Added support for image filters (grayscale, blur, brightness)
-* Added object detection capabilities
-* Added basic AR features (model placement, session management)
-* Added platform-specific implementations for iOS and Android
-* Added comprehensive documentation and examples
+All notable changes to the Advanced Image Processing Toolkit will be documented in this file.
+
+## [0.0.4] - 2024-02-20
+
+### Fixed
+- Platform implementation errors
+- Linter warnings and code style issue
+
+## [0.0.4] - 2024-02-20
+
+### Fixed
+- Type mismatch in image processing methods
+
+### Changed
+- Updated return types for image processing methods to be consistent
+- Improved error handling and logging
+- Updated documentation
+
+## [0.0.3] - 2025-02-19
+
+### Added
+- Proper platform-specific implementations
+- Android Kotlin implementation
+- iOS Swift implementation
+- Basic method channel setup
+
+### Fixed
+- Plugin registration issues
+- Package structure issues
+
+## [0.0.2] - 2025-02-18
+
+### Added
+- Logging support for better debugging
+- Error handling improvements
+- Type safety enhancements
+
+### Changed
+- Updated method signatures for better type safety
+- Improved documentation
+- Enhanced example application
+
+## [0.0.1] - 2025-01-17
+
+### Added
+- Initial release
+- Basic image filtering capabilities
+  - Grayscale conversion
+  - Gaussian blur
+  - Brightness adjustment
+- Object detection features
+  - Real-time detection
+  - Confidence scoring
+  - Bounding box calculation
+- Augmented Reality support
+  - 3D model placement
+  - AR session management
+  - Surface detection
+- Cross-platform support
+  - iOS implementation
+  - Android implementation
+- Comprehensive documentation
+- Example application
