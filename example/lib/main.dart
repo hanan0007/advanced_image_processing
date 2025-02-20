@@ -42,6 +42,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   Uint8List? _imageBytes;
   final _picker = ImagePicker();
+  final _imageFilters = ImageFilters();
   List<DetectedObject>? _detectedObjects;
 
   Future<void> _pickImage() async {
@@ -62,7 +63,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _applyGrayscale() async {
     if (_imageBytes != null) {
       try {
-        final processed = await ImageFilters.applyGrayscale(_imageBytes!);
+        final processed = await _imageFilters.applyGrayscale(_imageBytes!);
         setState(() {
           _imageBytes = processed;
         });
