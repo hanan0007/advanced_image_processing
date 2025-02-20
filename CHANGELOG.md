@@ -2,7 +2,7 @@
 
 All notable changes to the Advanced Image Processing Toolkit will be documented in this file.
 
-## [0.0.4] - 2024-02-20
+## [0.0.5] - 2024-02-20
 
 ### Fixed
 - Platform implementation errors
