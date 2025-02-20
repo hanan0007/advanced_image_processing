@@ -130,5 +130,5 @@ For questions and support, please [open an issue](https://github.com/emorilebo/a
 ---
 
 <div align="center">
-Made with ❤️ by <a href="https://github.com/emorilebo">Godfrey Lebo</a>
+Made with ❤️ by <a href="https://github.com/Curiosityxploring">Curiosityxploring</a>
 </div>
