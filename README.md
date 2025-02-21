@@ -44,7 +44,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-advanced_image_processing_toolkit: ^0.0.1
+advanced_image_processing_toolkit: ^0.0.6
 ```
 
 Then run:
@@ -79,7 +79,7 @@ print('Found ${detection.label} with confidence ${detection.confidence}');
 ## Documentation
 ## Documentation
 
-For detailed documentation and examples, visit our [Wiki](https://github.com/emorilebo/advanced_image_processing_toolkit/wiki).
+For detailed documentation and examples, visit our [Wiki](https://github.com/emorilebo/advanced_image_processing/wiki).
 
 ### Platform Support
 
@@ -125,7 +125,7 @@ If you find this package helpful, please consider:
 - 📖 Contributing to the documentation
 - 🤝 Submitting pull requests
 
-For questions and support, please [open an issue](https://github.com/emorilebo/advanced_image_processing_toolkit/issues) on GitHub.
+For questions and support, please [open an issue](https://github.com/emorilebo/advanced_image_processing/issues) on GitHub.
 
 ---
 
