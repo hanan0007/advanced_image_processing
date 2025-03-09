@@ -25,7 +25,7 @@ export 'src/augmented_reality.dart';
 /// - Web and desktop platform support
 /// - Performance optimizations for real-time processing
 class AdvancedImageProcessingToolkit {
-  static const String version = '0.0.8';
+  static const String version = '0.0.9';
   
   /// Initializes the toolkit with optional configuration
   ///

@@ -30,7 +30,7 @@ All notable changes to the Advanced Image Processing Toolkit will be documented 
   - Battery consumption optimizations
   - Parallel processing support
 
-## [0.0.8] - 2025-03-09
+## [0.0.9] - 2025-03-09
 
 ### Changed
 - Updated documentation
