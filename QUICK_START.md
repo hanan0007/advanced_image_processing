@@ -8,7 +8,7 @@ This guide will help you quickly get started with the Advanced Image Processing 
 
 ```yaml
 dependencies:
-  advanced_image_processing_toolkit: ^0.0.6
+  advanced_image_processing_toolkit: ^0.0.8
 ```
 
 2. Run:

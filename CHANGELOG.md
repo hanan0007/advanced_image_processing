@@ -2,7 +2,35 @@
 
 All notable changes to the Advanced Image Processing Toolkit will be documented in this file.
 
-## [0.0.7] - 2025-03-09
+## [Upcoming] - Future Release
+
+### Planned Features
+- **Enhanced Image Filters**
+  - Sepia, vignette, and artistic filters
+  - Color manipulation tools
+  - Custom filter chains
+- **Advanced ML Capabilities**
+  - Custom ML model support
+  - Specialized detection models
+  - Face detection and analysis
+  - Text recognition (OCR)
+  - Pose estimation
+- **Enhanced AR Features**
+  - Occlusion support
+  - Lighting estimation
+  - Environment mapping
+  - Persistent AR experiences
+  - Collaborative AR
+- **Expanded Platform Support**
+  - Web support
+  - Desktop support (Windows, macOS, Linux)
+- **Performance Optimizations**
+  - Real-time processing improvements
+  - Memory usage reduction
+  - Battery consumption optimizations
+  - Parallel processing support
+
+## [0.0.8] - 2025-03-09
 
 ### Changed
 - Updated documentation

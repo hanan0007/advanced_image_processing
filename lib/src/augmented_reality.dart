@@ -5,6 +5,19 @@ import 'package:logging/logging.dart';
 final _logger = Logger('AugmentedReality');
 
 /// Provides augmented reality capabilities
+///
+/// Current features:
+/// - AR session management
+/// - 3D model placement
+/// - Surface detection
+/// - Real-world scale adjustment
+///
+/// Upcoming features in future releases:
+/// - Occlusion (virtual objects hidden behind real objects)
+/// - Lighting estimation
+/// - Environment mapping
+/// - Persistent AR experiences
+/// - Collaborative AR
 class AugmentedReality {
   static const MethodChannel _channel = 
       MethodChannel('advanced_image_processing_toolkit/augmented_reality');

@@ -12,10 +12,30 @@ export 'src/object_recognition.dart';
 export 'src/augmented_reality.dart';
 
 /// Main class for the Advanced Image Processing Toolkit
+///
+/// This toolkit provides comprehensive image processing capabilities including:
+/// - Real-time image filters (grayscale, blur, brightness adjustment)
+/// - Object detection and recognition
+/// - Augmented reality features
+///
+/// Future updates will include:
+/// - Enhanced image filters (sepia, vignette, artistic filters)
+/// - Custom ML model support for specialized object detection
+/// - Advanced AR capabilities (occlusion, lighting estimation)
+/// - Web and desktop platform support
+/// - Performance optimizations for real-time processing
 class AdvancedImageProcessingToolkit {
-  static const String version = '0.0.1';
+  static const String version = '0.0.7';
   
   /// Initializes the toolkit with optional configuration
+  ///
+  /// [enableObjectDetection] - Whether to initialize object detection capabilities
+  /// [enableAR] - Whether to initialize augmented reality capabilities
+  ///
+  /// Future versions will support additional parameters for:
+  /// - Custom ML models
+  /// - AR feature configuration
+  /// - Performance optimization settings
   static Future<void> initialize({
     bool enableObjectDetection = true,
     bool enableAR = true,
@@ -24,6 +44,9 @@ class AdvancedImageProcessingToolkit {
     // This will be implemented later
   }
 
+  /// Gets the platform version
+  ///
+  /// This is primarily used for testing platform integration
   Future<String?> getPlatformVersion() {
     return AdvancedImageProcessingToolkitPlatform.instance.getPlatformVersion();
   }

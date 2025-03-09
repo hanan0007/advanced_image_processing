@@ -31,6 +31,19 @@ class DetectedObject {
 }
 
 /// Provides object detection and recognition capabilities
+///
+/// Current features:
+/// - Real-time object detection
+/// - Multiple object recognition
+/// - Confidence scoring
+/// - Bounding box calculation
+///
+/// Upcoming features in future releases:
+/// - Custom ML model support
+/// - Specialized detection models for specific industries
+/// - Face detection and analysis
+/// - Text recognition (OCR)
+/// - Pose estimation
 class ObjectRecognition {
   static const MethodChannel _channel = 
       MethodChannel('advanced_image_processing_toolkit/object_recognition');

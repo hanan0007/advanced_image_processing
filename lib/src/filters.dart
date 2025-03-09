@@ -5,6 +5,18 @@ import 'package:logging/logging.dart';
 final _logger = Logger('ImageFilters');
 
 /// Provides various image filtering capabilities
+///
+/// Current filters include:
+/// - Grayscale conversion
+/// - Gaussian blur
+/// - Brightness adjustment
+///
+/// Upcoming filters in future releases:
+/// - Sepia tone
+/// - Vignette effect
+/// - Color manipulation (HSL adjustments, inversion, tinting)
+/// - Artistic filters (watercolor, oil painting, sketch)
+/// - Custom filter chains
 class ImageFilters {
   static const MethodChannel _channel = MethodChannel('advanced_image_processing_toolkit/filters');
 
