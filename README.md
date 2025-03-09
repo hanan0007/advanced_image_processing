@@ -68,7 +68,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  advanced_image_processing_toolkit: ^0.0.7
+  advanced_image_processing_toolkit: ^0.0.8
 ```
 
 Then run:
