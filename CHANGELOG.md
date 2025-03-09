@@ -2,7 +2,7 @@
 
 All notable changes to the Advanced Image Processing Toolkit will be documented in this file.
 
-## [0.0.6] - 2024-02-21
+## [0.0.6] - 2025-02-21
 
 ### Fixed
 - Platform implementation errors
@@ -11,7 +11,7 @@ All notable changes to the Advanced Image Processing Toolkit will be documented 
 ### Changed
 - Updated documentation
 
-## [0.0.4] - 2024-02-20
+## [0.0.4] - 2025-02-20
 
 ### Fixed
 - Type mismatch in image processing methods
