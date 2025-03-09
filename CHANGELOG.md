@@ -2,6 +2,12 @@
 
 All notable changes to the Advanced Image Processing Toolkit will be documented in this file.
 
+## [0.0.7] - 2025-03-09
+
+### Changed
+- Updated documentation
+
+
 ## [0.0.6] - 2025-02-21
 
 ### Fixed
