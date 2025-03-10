@@ -68,7 +68,7 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  advanced_image_processing_toolkit: ^0.0.9
+  advanced_image_processing_toolkit: ^0.0.10
 ```
 
 Then run:
@@ -531,5 +531,5 @@ For questions and support, please [open an issue](https://github.com/emorilebo/a
 ---
 
 <div align="center">
-Made with ❤️ by <a href="https://github.com/emorilebo">Godfrey Lebo</a>
+Made with ❤️ by <a href="https://github.com/emorilebo">Curiosityxploring</a>
 </div> 
