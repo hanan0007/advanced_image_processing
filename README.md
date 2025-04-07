@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Flutter](https://img.shields.io/badge/Platform-Flutter-blue.svg)](https://flutter.dev)
 
-A powerful Flutter plugin that provides advanced image processing capabilities, including real-time filters, object recognition, and augmented reality features.
+A powerful Flutter plugin that provides advanced image processing capabilities, including real-time filters, object recognition, and optional augmented reality features.
 
 </div>
 
@@ -49,7 +49,7 @@ Advanced Image Processing Toolkit is a comprehensive Flutter plugin designed to 
 - **Bounding Box Calculation**: Receive precise object locations within images
 - **Custom Model Integration**: Use your own trained models for specialized detection
 
-### 🎮 Augmented Reality
+### 🎮 Augmented Reality (Optional)
 - **3D Model Placement**: Position 3D models in real-world space
 - **AR Session Management**: Easily control AR experiences
 - **Surface Detection**: Identify and use real-world surfaces
@@ -68,13 +68,25 @@ Add this to your package's `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  advanced_image_processing_toolkit: ^0.0.10
+  advanced_image_processing_toolkit: ^0.1.0
 ```
 
 Then run:
 
 ```bash
 flutter pub get
+```
+
+### Optional AR Dependencies
+
+To use the AR features, you need to manually add these dependencies to your app:
+
+```yaml
+dependencies:
+  # For iOS AR features
+  arkit_plugin: ^1.0.7
+  # For Android AR features
+  arcore_flutter_plugin: ^0.1.0
 ```
 
 ### Platform-specific Setup
@@ -89,9 +101,8 @@ Add the following permissions to your `AndroidManifest.xml` file:
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-<!-- For AR features -->
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-feature android:name="android.hardware.camera.ar" />
+<!-- For AR features (only if using AR) -->
+<uses-feature android:name="android.hardware.camera.ar" android:required="false" />
 ```
 
 #### iOS
@@ -127,7 +138,7 @@ void main() async {
   // Initialize the toolkit
   await AdvancedImageProcessingToolkit.initialize(
     enableObjectDetection: true,
-    enableAR: true,
+    enableAR: false, // Set to true only if you've added the AR dependencies
   );
   
   runApp(MyApp());
@@ -442,41 +453,27 @@ class _ImageProcessingDemoState extends State<ImageProcessingDemo> {
 }
 ```
 
-## ❓ Troubleshooting
+## 🛠️ Troubleshooting
 
 ### Common Issues
 
-#### "Method not implemented" error
+#### AR Features Not Working
+- Make sure you've added the required AR dependencies (arkit_plugin for iOS, arcore_flutter_plugin for Android)
+- Verify that AR is supported on the device using `AugmentedReality.isARSupported()`
+- Check that you've initialized the toolkit with `enableAR: true`
 
-This usually means you're using a feature that isn't supported on the current platform. Check the platform support table and ensure you're using compatible features.
+#### Build Errors
+- If you're not using AR features, initialize with `enableAR: false` to avoid dependency issues
+- Make sure you have the correct platform-specific setup (permissions in AndroidManifest.xml and Info.plist)
 
-#### Poor performance with large images
-
-For large images, consider resizing before processing:
-
+#### Permission Denials
+- Request permissions at runtime using the permission_handler package:
 ```dart
-// Example of resizing an image before processing
-Future<Uint8List> resizeImage(Uint8List originalImage, int targetWidth) async {
-  // Implementation depends on your image processing library
-  // ...
-}
+import 'package:permission_handler/permission_handler.dart';
+
+await Permission.camera.request();
+await Permission.storage.request();
 ```
-
-#### AR features not working
-
-Ensure your device supports ARCore (Android) or ARKit (iOS). You can check with:
-
-```dart
-bool isSupported = await AugmentedReality.isARSupported();
-```
-
-### Getting Help
-
-If you encounter issues not covered here:
-
-1. Check the [GitHub issues](https://github.com/emorilebo/advanced_image_processing/issues) for similar problems
-2. Open a new issue with detailed information about your problem
-3. Include device information, Flutter version, and steps to reproduce
 
 ## 🤝 Contributing
 

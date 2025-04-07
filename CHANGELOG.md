@@ -30,20 +30,47 @@ All notable changes to the Advanced Image Processing Toolkit will be documented 
   - Battery consumption optimizations
   - Parallel processing support
 
-## [0.0.10] - 2025-03-09
+## 0.1.0 - 2024-03-16
 
-### Changed
-- Updated documentation
+* Major refactoring for better cross-platform compatibility
+* Removed direct dependencies on AR libraries to make them optional
+* Added fallback Dart implementations for all features
+* Improved error handling and logging
+* Fixed platform compatibility issues
+* Updated example app to demonstrate core functionality
 
+## 0.0.10 - 2023-02-10
 
-## [0.0.6] - 2025-02-21
+* Added support for AR features with ARKit and ARCore
+* Improved object detection accuracy
+* Added new image filters
+* Performance optimizations
 
-### Fixed
-- Platform implementation errors
-- Linter warnings and code style issue
+## 0.0.9 - 2023-01-15
 
-### Changed
-- Updated documentation
+* Fixed compatibility issues with latest Flutter versions
+* Improved error handling
+* Added image rotation functionality
+* Documentation improvements
+
+## 0.0.8 - 2022-12-20
+
+* Added support for more image formats
+* Improved brightness adjustment
+* Fixed memory leaks in image processing
+* Added unit tests
+
+## 0.0.7 - 2022-12-05
+
+* Added blur filter
+* Improved object detection
+* Bug fixes and performance improvements
+
+## 0.0.6 - 2022-11-20
+
+* First public release
+* Basic image processing functionality
+* Grayscale and color adjustment filters
 
 ## [0.0.4] - 2025-02-20
 
