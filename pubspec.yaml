@@ -15,9 +15,9 @@ dependencies:
   flutter_web_plugins:
     sdk: flutter
   plugin_platform_interface: ^2.1.7
-  image: ^4.1.3
-  camera: ^0.10.5+9
-  google_ml_kit: ^0.16.3
+  image: ^4.5.4
+  camera: ^0.11.3
+  google_ml_kit: ^0.20.0
   image_picker: ^1.0.7
   logging: ^1.2.0
   # AR plugins marked as optional to prevent compilation issues
