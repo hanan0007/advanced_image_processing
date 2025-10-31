@@ -11,7 +11,7 @@ Advanced image processing, object recognition, and AR features for Flutter.
   s.author           = { 'hanan0007' => 'you@example.com' }
   s.source           = { :path => '.' }
 
-  s.platform         = :ios, '12.0'
+  s.platform         = :ios, '15.6'
   s.swift_version    = '5.0'
   s.static_framework = true
 
